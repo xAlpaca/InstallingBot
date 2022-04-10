@@ -2,7 +2,7 @@
 #### (installing.pl)
 
 ## What does this bot do?
-- Autocoplete every question that appears in the quize.
+- Autocoplete every question that appears in the quiz.
 - Self-learning, after running the script, you don't have to worry about new questions that might appear. 
 - Adjustable amount of series per run.
 
@@ -10,7 +10,7 @@
 - You need to [Download Python](https://www.python.org/downloads/release/python-3912/) and install it.
 - Then, open cmd and type: ```python -m pip install selenium```
 
-You have just installed python, and setupped the libraries. Now it is time to download WebdDriver, it dipend on browser that you have on your computer. 
+You have just installed python, and setupped the libraries. Now it is time to download WebdDriver, it depends on browser that you have on your computer. 
 - For Chrome: you should check your browser verison after that go to [ChromeDriver Website](https://chromedriver.chromium.org/downloads) and download an exe matching your browser version. 
 - After all, create an empty folder and UnZip your ChromeDriver and clone installingBot.py into directory. 
 
