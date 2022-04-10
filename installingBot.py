@@ -7,9 +7,8 @@ import os
 driver = webdriver.Chrome("./chromedriver.exe")
 driver.get("https://instaling.pl/teacher.php?page=login")
 
-username = ""
-password = ""
-
+username = "ieo650656"
+password = "gmmmp"
 
 def start_session():
     start_session_btn_1 = driver.find_element(By.XPATH, '//*[@id="student_panel"]/p[1]/a')    
@@ -29,6 +28,7 @@ def log_in(_username, _password):
 
     if os.path.isfile("dict.json") == False:
         f = open("dict.json", "a")
+        f.write('{\n"none": "none"\n}')
         f.close()
 
     username_field = driver.find_element(By.ID, "log_email")
@@ -88,18 +88,19 @@ def answer_question():
         # Add answer to JSON
         submit_answer.click()
         
-        driver.implicitly_wait(1)
+        driver.implicitly_wait(0.5)
         right_answer = driver.find_element(By.XPATH, '//*[@id="word"]')
-        
-        with open("dict.json", "r+") as file:
-            # Write to file
-            data = json.load(file)
-            data[q_text] = right_answer.text
-            file.seek(0)
-            json.dump(data, file, indent=4)
-            file.truncate()
+        if right_answer.text != "" and q_text != "":
+            with open("dict.json", "r+") as file:
+                # Write to file
+                data = json.load(file)
+                data[q_text] = right_answer.text
+                file.seek(0)
+                json.dump(data, file, indent=4)
+                file.truncate()
 
-    driver.implicitly_wait(1)
+
+    driver.implicitly_wait(0.5)
 
     next_question = driver.find_element(By.XPATH, '//*[@id="next_word"]')
     next_question.click()
