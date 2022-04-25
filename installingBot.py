@@ -97,6 +97,8 @@ def answer_question():
                 data[q_text] = right_answer.text
                 file.seek(0)
                 json.dump(data, file, indent=4)
+                # time.sleep(0.25)
+                # driver.implicitly_wait(0.25)
                 file.truncate()
 
 
@@ -114,8 +116,10 @@ def perform_session(amount_of_sessions):
         print(f"Session {session+1} started")
         response = None
         while response is None:
-            response = answer_question()
-
+            try:
+                response = answer_question()
+            except:
+                pass
         driver.implicitly_wait(1)
 
         start_session()
