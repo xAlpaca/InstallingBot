@@ -1,5 +1,5 @@
-# InstallingBot
-#### (installing.pl)
+# InstalingBot
+#### (instaling.pl)
 
 ## What does this bot do?
 - Autocoplete every question that appears in the quiz.
@@ -10,7 +10,7 @@
 - You need to [Download Python](https://www.python.org/downloads/release/python-3912/) and install it.
 - Then, open cmd and type: ```python -m pip install selenium```
 
-You have just installed python, and setupped the libraries. Now it is time to download WebdDriver, it depends on browser that you have on your computer. 
+You have just installed python, and setupped the libraries. Now it is time to download WebDriver, it depends on browser that you have on your computer. 
 - For Chrome: you should check your browser verison after that go to [ChromeDriver Website](https://chromedriver.chromium.org/downloads) and download an exe matching your browser version. 
 - After all, create an empty folder and UnZip your ChromeDriver and clone installingBot.py into directory. 
 
@@ -21,8 +21,8 @@ You have just installed python, and setupped the libraries. Now it is time to do
 7 driver = webdriver.Chrome("./chromedriver.exe")
 8 driver.get("https://instaling.pl/teacher.php?page=login")
 9 
-10 username = "Your installing.py username"  <---
-11 password = "Your installing.py password"  <---
+10 username = "Your instaling.pl username"  <---
+11 password = "Your instaling.pl password"  <---
 12 
 13 
 14 def start_session():
