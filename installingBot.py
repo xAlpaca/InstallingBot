@@ -7,8 +7,6 @@ import os
 driver = webdriver.Chrome("./chromedriver.exe")
 driver.get("https://instaling.pl/teacher.php?page=login")
 
-username = "ieo650656"
-password = "gmmmp"
 
 def start_session():
     start_session_btn_1 = driver.find_element(By.XPATH, '//*[@id="student_panel"]/p[1]/a')    
