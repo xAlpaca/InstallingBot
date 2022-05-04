@@ -9,11 +9,13 @@ driver.get("https://instaling.pl/teacher.php?page=login")
 
 username = ""
 password = ""
+amount_of_sessions = 3
+
 
 def start_session():
-    start_session_btn_1 = driver.find_element(By.XPATH, '//*[@id="student_panel"]/p[1]/a')    
+    start_session_btn_1 = driver.find_element(By.XPATH, '//*[@id="student_panel"]/p[1]/a')
     start_session_btn_1.click()
-    
+
     driver.implicitly_wait(1)
 
     try:
@@ -25,8 +27,7 @@ def start_session():
 
 
 def log_in(_username, _password):
-
-    if os.path.isfile("dict.json") == False:
+    if not os.path.isfile("dict.json"):
         f = open("dict.json", "a")
         f.write('{\n"none": "none"\n}')
         f.close()
@@ -39,14 +40,13 @@ def log_in(_username, _password):
     password_field.send_keys(str(_password))
 
     login_button.click()
-    
+
     time.sleep(1)
 
     start_session()
 
 
 def answer_question():
-
     try:
         # Final message?
         return_to_menu = driver.find_element(By.XPATH, '//*[@id="return_mainpage"]/h4')
@@ -67,7 +67,7 @@ def answer_question():
 
         except:
             pass
-        pass    
+        pass
 
     dict_file = open("dict.json")
     data = json.load(dict_file)
@@ -87,7 +87,7 @@ def answer_question():
     else:
         # Add answer to JSON
         submit_answer.click()
-        
+
         driver.implicitly_wait(0.5)
         right_answer = driver.find_element(By.XPATH, '//*[@id="word"]')
         if right_answer.text != "" and q_text != "":
@@ -101,7 +101,6 @@ def answer_question():
                 # driver.implicitly_wait(0.25)
                 file.truncate()
 
-
     driver.implicitly_wait(0.5)
 
     next_question = driver.find_element(By.XPATH, '//*[@id="next_word"]')
@@ -110,10 +109,9 @@ def answer_question():
     return None
 
 
-def perform_session(amount_of_sessions):
-    
-    for session in range(amount_of_sessions):
-        print(f"Session {session+1} started")
+def perform_session(_amount_of_sessions):
+    for session in range(_amount_of_sessions):
+        print(f"Session {session + 1} started")
         response = None
         while response is None:
             try:
@@ -124,6 +122,8 @@ def perform_session(amount_of_sessions):
 
         start_session()
 
+    exit()
+
 
 if __name__ == "__main__":
     if username != "" and password != "":
@@ -132,4 +132,4 @@ if __name__ == "__main__":
         username = input("Your username:\n")
         password = input("Your password:\n")
         log_in(username, password)
-    perform_session(3)
+    perform_session(amount_of_sessions)
