@@ -18,7 +18,7 @@ username = ""
 password = ""
 
 
-data = [["ieo650656", "gmmmp"],]
+data = [["", ""],]
 amount_of_sessions = 1
 
 
