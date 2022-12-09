@@ -14,8 +14,8 @@ options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
-username = "ieo650656"
-password = "gmmmp"
+username = ""
+password = ""
 
 
 data = [["ieo650656", "gmmmp"],]
